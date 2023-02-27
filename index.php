@@ -20,13 +20,23 @@ include("templates/header.php")
         <div class="matelas">
             <img src="img/matelas/<?= $oneMatelas["picture"] ?>" alt="<?= $oneMatelas["modele"] ?>">
             <h2>
-                <a href="matelas.php?id=<?= $oneMatelas["id"] ?>"> <?= $oneMatelas["marque"] ?> - <?= $oneMatelas["modele"] ?> </a>
+                <?= $oneMatelas["marque"] ?> - <?= $oneMatelas["modele"] ?>
             </h2>
+
+            <div class="button">
+                <a href="matelas.php?id=<?= $oneMatelas["id"] ?>"> Voir en détail</a>
+            </div>
+
+
         </div>
     <?php
     }
     ?>
 
+</div>
+
+<div class="button">
+<a href="add_matelas.php"> Ajouter une référence</a>
 </div>
 
 <?php
