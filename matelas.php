@@ -40,21 +40,16 @@ if ($find) {
             <?= $data["taille"] ?>
         </p>
     </div>
-    
+
     <div class="button">
-        <!-- ajouter <a> vers modification -->
-        modifier
+        <a href="modif_matelas.php?id=<?= $data["id"] ?>"> modifier la référence</a>
     </div>
 
     <div class="button">
-        <input type="submit" name="delete" value="Supprimer">
-        <?php
-        $delete = $db->prepare("DELETE FROM matelas WHERE id= :id");
-        $delete->bindParam(":id", $_GET["id"], PDO::PARAM_INT);
-        $delete->execute()
-        ?>
+    <a href="delete_matelas.php?id=<?= $data["id"] ?>"> supprimer la référence</a>
+       
 
-    </div>
+   </div>
 
 
 <?php
