@@ -45,11 +45,9 @@ if ($find) {
         <a href="modif_matelas.php?id=<?= $data["id"] ?>"> modifier la référence</a>
     </div>
 
-    <div class="button">
-    <a href="delete_matelas.php?id=<?= $data["id"] ?>"> supprimer la référence</a>
-       
-
-   </div>
+    <div class="button" id="delete">
+        <a href="delete_matelas.php?id=<?= $data["id"] ?>"> supprimer la référence</a>
+    </div>
 
 
 <?php

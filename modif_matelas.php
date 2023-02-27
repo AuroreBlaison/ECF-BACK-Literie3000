@@ -57,13 +57,13 @@ if ($find) {
         </div>
 
         <div class="form-group">
-            <h3> Ancien prix : <?= $data["prix"] ?></h3>
+            <h3> Ancien prix : <?= $data["prix"] ?>€</h3>
             <label for="inputPrix">Nouveau prix :</label>
             <input type="number" id="inputPrix" name="prix">
         </div>
 
         <div class="form-group">
-            <h3> ancien prix remisé: <?= $data["remise"] ?></h3>
+            <h3> ancien prix remisé: <?= $data["remise"] ?>€</h3>
             <label for="inputRemise">Nouveau prix remisé :</label>
             <input type="remise" id="inputRemise" name="remise">
         </div>

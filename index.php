@@ -13,30 +13,30 @@ include("templates/header.php")
 
 <h1>notre gamme</h1>
 
+<div class="button">
+    <a href="add_matelas.php"> Ajouter une référence</a>
+</div>
+
 <div class="catalogue">
     <?php
     foreach ($matelas as $oneMatelas) {
     ?>
         <div class="matelas">
-            <img src="img/matelas/<?= $oneMatelas["picture"] ?>" alt="<?= $oneMatelas["modele"] ?>">
             <h2>
-                <?= $oneMatelas["marque"] ?> - <?= $oneMatelas["modele"] ?>
+                <?= $oneMatelas["marque"] ?>
             </h2>
-
+            <h3>
+                <?= $oneMatelas["modele"] ?>
+            </h3>
+            <img src="img/matelas/<?= $oneMatelas["picture"] ?>" alt="<?= $oneMatelas["modele"] ?>">
             <div class="button">
                 <a href="matelas.php?id=<?= $oneMatelas["id"] ?>"> Voir en détail</a>
             </div>
-
-
         </div>
     <?php
     }
     ?>
 
-</div>
-
-<div class="button">
-<a href="add_matelas.php"> Ajouter une référence</a>
 </div>
 
 <?php
