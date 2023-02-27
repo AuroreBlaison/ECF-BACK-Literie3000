@@ -33,21 +33,26 @@ if ($find) {
         <p class="basic-price"><?= $data["prix"] ?>€</p>
         <p class="sales-price"><?= $data["remise"] ?>€</p>
     </div>
+
     <div class="size">
         <h3>Tailles disponibles :</h3>
         <p class="size-available">
             <?= $data["taille"] ?>
         </p>
+    </div>
+    
+    <div class="button">
+        <!-- ajouter <a> vers modification -->
+        modifier
+    </div>
 
-        <div class="button">
-            <!-- ajouter <a> vers modification -->
-            modifier
-        </div>
-
-        <div class="button">
-              <!-- ajouter <a> vers suppression -->
-            supprimer
-        </div>
+    <div class="button">
+        <input type="submit" name="delete" value="Supprimer">
+        <?php
+        $delete = $db->prepare("DELETE FROM matelas WHERE id= :id");
+        $delete->bindParam(":id", $_GET["id"], PDO::PARAM_INT);
+        $delete->execute()
+        ?>
 
     </div>
 

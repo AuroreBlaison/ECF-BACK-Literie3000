@@ -14,6 +14,6 @@
         
         <div class="logo-wrapper">
             <a href="index.php">
-                <img src="img/logo-fond-transparent.png" alt="Literie3000" class="logo">
+                <img src="img/logo.png" alt="Literie3000" class="logo">
             </a>
         </div>
