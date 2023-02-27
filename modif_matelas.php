@@ -1,10 +1,10 @@
 <?php
 
-if (isset($_GET["id"])) {
+//connexion bdd
+$dsn = "mysql:host=localhost;dbname=literie3000";
+$db = new PDO($dsn, "root", "");
 
-    //connexion bdd
-    $dsn = "mysql:host=localhost;dbname=literie3000";
-    $db = new PDO($dsn, "root", "");
+if (isset($_GET["id"])) {
 
     //requete preparée
     $query = $db->prepare("SELECT * FROM matelas WHERE id= :id");
@@ -19,6 +19,26 @@ if (isset($_GET["id"])) {
     }
 }
 
+if (!empty($_POST)) {
+    $taille = trim(strip_tags($_POST["taille"]));
+    $prix = trim(strip_tags($_POST["prix"]));
+    $remise = trim(strip_tags($_POST["remise"]));
+
+    //requete de modif en bdd avec une requete preparée
+    $update = $db->prepare("UPDATE matelas 
+     SET taille= :taille,
+     prix= :prix,
+     remise= :remise
+     WHERE id= :id");
+    $update->bindParam(":id", $_GET["id"], PDO::PARAM_INT);
+    $update->bindParam(":taille", $taille);
+    $update->bindParam(":prix", $prix, PDO::PARAM_INT);
+    $update->bindParam(":remise", $remise, PDO::PARAM_INT);
+
+    if ($update->execute()) {
+        header("location: index.php");
+    }
+}
 
 
 include("templates/header.php");
@@ -44,7 +64,7 @@ if ($find) {
 
         <div class="form-group">
             <h3> ancien prix remisé: <?= $data["remise"] ?></h3>
-            <label for="inputRemise">Prix remisé :</label>
+            <label for="inputRemise">Nouveau prix remisé :</label>
             <input type="remise" id="inputRemise" name="remise">
         </div>
 
